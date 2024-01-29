@@ -17,6 +17,8 @@
 		821502352B67CB5000A637A1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821502342B67CB5000A637A1 /* SignUpView.swift */; };
 		821502372B67CB5F00A637A1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821502362B67CB5F00A637A1 /* HomeView.swift */; };
 		8215023B2B67CCC800A637A1 /* Utills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8215023A2B67CCC800A637A1 /* Utills.swift */; };
+		8215023E2B67DC6700A637A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 821502402B67DC6700A637A1 /* Localizable.strings */; };
+		821502432B67DED100A637A1 /* Billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 821502422B67DEA100A637A1 /* Billabong.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,9 @@
 		821502342B67CB5000A637A1 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		821502362B67CB5F00A637A1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8215023A2B67CCC800A637A1 /* Utills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utills.swift; sourceTree = "<group>"; };
+		8215023F2B67DC6700A637A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		821502412B67DCFC00A637A1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		821502422B67DEA100A637A1 /* Billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billabong.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +92,10 @@
 		8215022B2B67C70E00A637A1 /* AppUtils */ = {
 			isa = PBXGroup;
 			children = (
+				821502422B67DEA100A637A1 /* Billabong.ttf */,
 				8215021D2B67C4CE00A637A1 /* InstaProApp.swift */,
 				821502212B67C4CF00A637A1 /* Assets.xcassets */,
+				821502402B67DC6700A637A1 /* Localizable.strings */,
 			);
 			path = AppUtils;
 			sourceTree = "<group>";
@@ -161,6 +168,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 821502112B67C4CD00A637A1;
 			productRefGroup = 8215021B2B67C4CD00A637A1 /* Products */;
@@ -178,7 +186,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				821502252B67C4CF00A637A1 /* Preview Assets.xcassets in Resources */,
+				8215023E2B67DC6700A637A1 /* Localizable.strings in Resources */,
 				821502222B67C4CF00A637A1 /* Assets.xcassets in Resources */,
+				821502432B67DED100A637A1 /* Billabong.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,12 +212,25 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		821502402B67DC6700A637A1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8215023F2B67DC6700A637A1 /* en */,
+				821502412B67DCFC00A637A1 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		821502262B67C4CF00A637A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -271,6 +294,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -334,6 +358,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InstaPro/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Instagram;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -364,6 +389,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InstaPro/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Instagram;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

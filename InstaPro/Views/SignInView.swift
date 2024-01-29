@@ -17,15 +17,16 @@ struct SignInView: View {
                 LinearGradient(gradient: Gradient(colors: [Utills.color1, Utills.color2]), startPoint: .top, endPoint: .bottom)
                 VStack(spacing:10){
                     Spacer()
-                    Text("Instagram").foregroundColor(.white)
-                        .font(.system(size: 32))
-                    TextField("Email:", text: $email)
+                    Text("app_name").foregroundColor(.white)
+                        .font(Font.custom("Billabong", size: 35))
+                    
+                    TextField("email", text: $email)
                         .frame(height: 50)
                         .padding(.horizontal)
                         .foregroundColor(.white)
                         .background(.white.opacity(0.5))
                         .cornerRadius(10)
-                    SecureField("Pasword:", text: $pasword)
+                    SecureField("password", text: $pasword)
                         .frame(height: 50)
                         .padding(.horizontal)
                         .foregroundColor(.white)
@@ -34,7 +35,7 @@ struct SignInView: View {
                     Button(action: {
                         
                     }, label: {
-                        Text("Sign In")
+                        Text("sign_in")
                             .frame(width:360,height: 50)
                             .foregroundColor(.white)
                             .background(
@@ -46,12 +47,12 @@ struct SignInView: View {
                     Spacer()
                     VStack{
                         HStack{
-                            Text("Don't have an account?")
+                            Text("dont_have_account")
                                 .foregroundColor(.white)
                             Button(action: {
                                 ispresented = true
                             }, label: {
-                                Text("Sign Up")
+                                Text("sign_up")
                                     .foregroundColor(.white)
                                     .bold()
                             })
