@@ -32,6 +32,9 @@
 		82C4459B2B69338600037C9D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4459A2B69338600037C9D /* Post.swift */; };
 		82C4459D2B6936DF00037C9D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4459C2B6936DE00037C9D /* PostCell.swift */; };
 		82C4459F2B69439200037C9D /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4459E2B69439200037C9D /* LikeViewModel.swift */; };
+		82C445A12B6948A700037C9D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C445A02B6948A700037C9D /* SearchViewModel.swift */; };
+		82C445A32B694CE600037C9D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C445A22B694CE600037C9D /* UserCell.swift */; };
+		82C445A52B6952E200037C9D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C445A42B6952E200037C9D /* ProfileViewModel.swift */; };
 		B1C56D320B265284E75EDD85 /* Pods_InstaPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969B6F17FE1A1C66C91EB0FB /* Pods_InstaPro.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 		82C4459A2B69338600037C9D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		82C4459C2B6936DE00037C9D /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostCell.swift; path = InstaPro/Model/PostCell.swift; sourceTree = SOURCE_ROOT; };
 		82C4459E2B69439200037C9D /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
+		82C445A02B6948A700037C9D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		82C445A22B694CE600037C9D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserCell.swift; path = InstaPro/ViewModel/UserCell.swift; sourceTree = SOURCE_ROOT; };
+		82C445A42B6952E200037C9D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		969B6F17FE1A1C66C91EB0FB /* Pods_InstaPro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaPro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9CD25F9947AE9382B1A78A /* Pods-InstaPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaPro.debug.xcconfig"; path = "Target Support Files/Pods-InstaPro/Pods-InstaPro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				82C4459C2B6936DE00037C9D /* PostCell.swift */,
+				82C445A22B694CE600037C9D /* UserCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -217,6 +224,8 @@
 			children = (
 				82C445982B69328C00037C9D /* FeedViewModel.swift */,
 				82C4459E2B69439200037C9D /* LikeViewModel.swift */,
+				82C445A02B6948A700037C9D /* SearchViewModel.swift */,
+				82C445A42B6952E200037C9D /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -338,16 +347,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82C445A12B6948A700037C9D /* SearchViewModel.swift in Sources */,
 				82306E8D2B68F5FC00B9ACFE /* Coordinator.swift in Sources */,
 				8215022F2B67C8F600A637A1 /* AppDelegate.swift in Sources */,
 				821502372B67CB5F00A637A1 /* HomeView.swift in Sources */,
 				821502202B67C4CE00A637A1 /* ContentView.swift in Sources */,
 				8215021E2B67C4CE00A637A1 /* InstaProApp.swift in Sources */,
+				82C445A52B6952E200037C9D /* ProfileViewModel.swift in Sources */,
 				82306E852B68E95700B9ACFE /* SearchView.swift in Sources */,
 				821502312B67C90700A637A1 /* SceneDelegate.swift in Sources */,
 				82306E7D2B68AD2500B9ACFE /* SessionStore.swift in Sources */,
 				82C445992B69328C00037C9D /* FeedViewModel.swift in Sources */,
 				82306E8B2B68E9A800B9ACFE /* ProfileView.swift in Sources */,
+				82C445A32B694CE600037C9D /* UserCell.swift in Sources */,
 				82306E832B68E93A00B9ACFE /* FeedView.swift in Sources */,
 				821502352B67CB5000A637A1 /* SignUpView.swift in Sources */,
 				82306E892B68E99D00B9ACFE /* LikesView.swift in Sources */,
