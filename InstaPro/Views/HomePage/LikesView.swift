@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct LikesView: View {
+    @ObservedObject var viewModel = LikeViewModel()
     var body: some View {
-        Text("LikesView")
+        NavigationView{
+            ZStack{
+                List{
+                    ForEach(viewModel.items, id:\.self){item in
+                        PostCell(post:item).listRowInsets(EdgeInsets())
+                    }
+                }.listStyle(PlainListStyle())
+            }
+            .navigationBarTitle("Likes",displayMode: .inline)
+        }
+        .onAppear{
+            viewModel.apiPostList {
+                print(viewModel.items.count)
+            }
+        }
+        
     }
 }
-
 #Preview {
     LikesView()
 }

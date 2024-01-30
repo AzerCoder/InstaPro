@@ -9,10 +9,16 @@ import SwiftUI
 
 struct FeedView: View {
     @Binding var tabSelection: Int
+    @ObservedObject var viewModel = FeedViewModel()
+    
     var body: some View {
         NavigationView{
             ZStack{
-                
+                List{
+                    ForEach(viewModel.items, id:\.self){item in
+                        PostCell(post:item).listRowInsets(EdgeInsets())
+                    }
+                }.listStyle(PlainListStyle())
             }
             .navigationBarItems(trailing:
             Button(action: {
@@ -23,7 +29,12 @@ struct FeedView: View {
             )
             .navigationBarTitle("Instagram",displayMode: .inline)
         }
-        //.accentColor(Utills.color2)
+        .onAppear{
+            viewModel.apiPostList {
+                print(viewModel.items.count)
+            }
+        }
+        
     }
 }
 
