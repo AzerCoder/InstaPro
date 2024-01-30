@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var session : SessionStore
     var body: some View {
-        VStack {
-           SignInView()
+      
+        VStack{
+            if self.session.session != nil{
+                HomeView()
+            }else{
+                SignInView()
+            }
+        }.onAppear{
+            session.listen()
         }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView().environmentObject(SessionStore())
 }
