@@ -10,10 +10,11 @@ import SwiftUI
 struct ProfileView: View {
     @State var isList = true
     @State var actionSheet = false
-    @ObservedObject var viewModel = FeedViewModel()
+    @ObservedObject var viewModel = ProfileViewModel()
     @State private var sourType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage : UIImage?
     @State private var imagePickerDiplay = false
+    @State var shovingAlert = false
     
     var columns:[GridItem] = Array(repeating: .init(.fixed(UIScreen.width/2)), count: 2)
     var body: some View {
@@ -149,12 +150,23 @@ struct ProfileView: View {
                   
                 }
             }
+            
             .navigationBarItems(trailing:
             Button(action: {
-                
+                self.shovingAlert = true
             }, label: {
                 Image(systemName: "pip.exit")
             }))
+            .alert(isPresented: $shovingAlert){
+                let title = "Log Out"
+                let message = "Do you want in Logout"
+                return Alert(title: Text(title),
+                             message: Text(message),
+                             primaryButton:
+                        .destructive(Text("Confirm")){
+                            viewModel.apiSignOut()
+                        }, secondaryButton: .cancel())
+            }
             .navigationBarTitle("Profile",displayMode: .inline)
         }.onAppear{
             viewModel.apiPostList {

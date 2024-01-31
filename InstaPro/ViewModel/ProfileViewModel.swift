@@ -27,4 +27,7 @@ class ProfileViewModel:ObservableObject{
         complition()
         
     }
+    func apiSignOut(){
+        SessionStore().signOut()
+    }
 }

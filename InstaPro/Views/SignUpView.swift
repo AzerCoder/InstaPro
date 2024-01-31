@@ -9,11 +9,35 @@ import SwiftUI
 
 struct SignUpView: View {
     @Environment(\.presentationMode) var presentation
-    @State var fullname = ""
-    @State var pasword2 = ""
-    @State var email = ""
-    @State var pasword = ""
+    @EnvironmentObject var session : SessionStore
+    @ObservedObject var viewModel = SignUpViewModel()
+    @State var isLoading = false
+    @State var fullname = "A'zamjon"
+    @State var pasword2 =  "1234qwer"
+    @State var email = "abdumuxtorov@gmail.com"
+    @State var pasword = "1234qwer"
     @State var ispresented = false
+    @State var shovingAlert = false
+
+    func doSignUp(){
+        let userToValidate = ValidateUser(email: email, password: pasword)
+        if userToValidate.validateUser(userToValidate) && pasword == pasword2{
+            viewModel.apiSignUp(email: email, pasword: pasword, complition: {ressult in
+                if !ressult{
+                    
+                }else{
+                    var user = User(email: email,pasword:pasword, displayName: fullname,imgUser: "")
+                    user.uid = session.session?.uid
+                    viewModel.apiStoreUser(user: user)
+                    presentation.wrappedValue.dismiss()
+                }
+            })
+        }else{
+            shovingAlert = true
+        }
+       
+    }
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -48,7 +72,7 @@ struct SignUpView: View {
                         .background(.white.opacity(0.5))
                         .cornerRadius(10)
                     Button(action: {
-                        
+                        doSignUp()
                     }, label: {
                         Text("sign_up")
                             .frame(width:360,height: 50)
@@ -71,12 +95,22 @@ struct SignUpView: View {
                                     .foregroundColor(.white)
                                     .bold()
                             })
+                            .alert(isPresented: $shovingAlert){
+                                let title = "Error"
+                                let message = "Check email or pasword"
+                                return Alert(title: Text(title),
+                                             message: Text(message),
+                                             dismissButton: .destructive(Text("OK")))
+                            }
                            
                         }
                         
                     }.frame(maxWidth:.infinity, maxHeight: 70)
                 }.padding()
                
+                if viewModel.isLoading{
+                    ProfileView()
+                }
             }
             .edgesIgnoringSafeArea(.all)
         }

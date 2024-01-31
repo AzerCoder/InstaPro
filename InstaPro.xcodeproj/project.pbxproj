@@ -29,6 +29,10 @@
 		82306E8D2B68F5FC00B9ACFE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82306E8C2B68F5FC00B9ACFE /* Coordinator.swift */; };
 		82306E8F2B68F62000B9ACFE /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82306E8E2B68F62000B9ACFE /* ImagePickerView.swift */; };
 		823C87192B6A0A76002EEECA /* MyPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823C87182B6A0A76002EEECA /* MyPostCell.swift */; };
+		823C871B2B6A1F3B002EEECA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 823C871A2B6A1F3B002EEECA /* GoogleService-Info.plist */; };
+		823C871D2B6A4539002EEECA /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823C871C2B6A4539002EEECA /* SignInViewModel.swift */; };
+		823C871F2B6A4549002EEECA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823C871E2B6A4549002EEECA /* SignUpViewModel.swift */; };
+		823C87212B6A57BC002EEECA /* ValidateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823C87202B6A57BC002EEECA /* ValidateUser.swift */; };
 		82C445992B69328C00037C9D /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C445982B69328C00037C9D /* FeedViewModel.swift */; };
 		82C4459B2B69338600037C9D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4459A2B69338600037C9D /* Post.swift */; };
 		82C4459D2B6936DF00037C9D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4459C2B6936DE00037C9D /* PostCell.swift */; };
@@ -66,6 +70,10 @@
 		82306E8C2B68F5FC00B9ACFE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		82306E8E2B68F62000B9ACFE /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		823C87182B6A0A76002EEECA /* MyPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPostCell.swift; path = InstaPro/ViewModel/MyPostCell.swift; sourceTree = SOURCE_ROOT; };
+		823C871A2B6A1F3B002EEECA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		823C871C2B6A4539002EEECA /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		823C871E2B6A4549002EEECA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		823C87202B6A57BC002EEECA /* ValidateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateUser.swift; sourceTree = "<group>"; };
 		82C445982B69328C00037C9D /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		82C4459A2B69338600037C9D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		82C4459C2B6936DE00037C9D /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostCell.swift; path = InstaPro/Model/PostCell.swift; sourceTree = SOURCE_ROOT; };
@@ -135,6 +143,7 @@
 				8215022B2B67C70E00A637A1 /* AppUtils */,
 				821502392B67CCAF00A637A1 /* Utils */,
 				8215022D2B67C84200A637A1 /* Info.plist */,
+				823C871A2B6A1F3B002EEECA /* GoogleService-Info.plist */,
 				8215022E2B67C8F600A637A1 /* AppDelegate.swift */,
 				821502302B67C90700A637A1 /* SceneDelegate.swift */,
 				821502232B67C4CF00A637A1 /* Preview Content */,
@@ -189,6 +198,7 @@
 				8215023A2B67CCC800A637A1 /* Utills.swift */,
 				82306E8C2B68F5FC00B9ACFE /* Coordinator.swift */,
 				82306E8E2B68F62000B9ACFE /* ImagePickerView.swift */,
+				823C87202B6A57BC002EEECA /* ValidateUser.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -229,6 +239,8 @@
 				82C4459E2B69439200037C9D /* LikeViewModel.swift */,
 				82C445A02B6948A700037C9D /* SearchViewModel.swift */,
 				82C445A42B6952E200037C9D /* ProfileViewModel.swift */,
+				823C871C2B6A4539002EEECA /* SignInViewModel.swift */,
+				823C871E2B6A4549002EEECA /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -294,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				823C871B2B6A1F3B002EEECA /* GoogleService-Info.plist in Resources */,
 				821502252B67C4CF00A637A1 /* Preview Assets.xcassets in Resources */,
 				8215023E2B67DC6700A637A1 /* Localizable.strings in Resources */,
 				821502222B67C4CF00A637A1 /* Assets.xcassets in Resources */,
@@ -354,6 +367,7 @@
 				82306E8D2B68F5FC00B9ACFE /* Coordinator.swift in Sources */,
 				8215022F2B67C8F600A637A1 /* AppDelegate.swift in Sources */,
 				821502372B67CB5F00A637A1 /* HomeView.swift in Sources */,
+				823C871D2B6A4539002EEECA /* SignInViewModel.swift in Sources */,
 				821502202B67C4CE00A637A1 /* ContentView.swift in Sources */,
 				823C87192B6A0A76002EEECA /* MyPostCell.swift in Sources */,
 				8215021E2B67C4CE00A637A1 /* InstaProApp.swift in Sources */,
@@ -362,10 +376,12 @@
 				821502312B67C90700A637A1 /* SceneDelegate.swift in Sources */,
 				82306E7D2B68AD2500B9ACFE /* SessionStore.swift in Sources */,
 				82C445992B69328C00037C9D /* FeedViewModel.swift in Sources */,
+				823C871F2B6A4549002EEECA /* SignUpViewModel.swift in Sources */,
 				82306E8B2B68E9A800B9ACFE /* ProfileView.swift in Sources */,
 				82C445A32B694CE600037C9D /* UserCell.swift in Sources */,
 				82306E832B68E93A00B9ACFE /* FeedView.swift in Sources */,
 				821502352B67CB5000A637A1 /* SignUpView.swift in Sources */,
+				823C87212B6A57BC002EEECA /* ValidateUser.swift in Sources */,
 				82306E892B68E99D00B9ACFE /* LikesView.swift in Sources */,
 				821502332B67CB4800A637A1 /* SignInView.swift in Sources */,
 				82C4459F2B69439200037C9D /* LikeViewModel.swift in Sources */,

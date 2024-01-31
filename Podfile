@@ -7,5 +7,8 @@ target 'InstaPro' do
 
   # Pods for InstaPro
 	pod 'SDWebImageSwiftUI'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Firestore'
+	pod 'Firebase/Storage'
 
 end
