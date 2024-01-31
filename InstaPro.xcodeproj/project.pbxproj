@@ -28,6 +28,7 @@
 		82306E8B2B68E9A800B9ACFE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82306E8A2B68E9A800B9ACFE /* ProfileView.swift */; };
 		82306E8D2B68F5FC00B9ACFE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82306E8C2B68F5FC00B9ACFE /* Coordinator.swift */; };
 		82306E8F2B68F62000B9ACFE /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82306E8E2B68F62000B9ACFE /* ImagePickerView.swift */; };
+		823C87192B6A0A76002EEECA /* MyPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823C87182B6A0A76002EEECA /* MyPostCell.swift */; };
 		82C445992B69328C00037C9D /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C445982B69328C00037C9D /* FeedViewModel.swift */; };
 		82C4459B2B69338600037C9D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4459A2B69338600037C9D /* Post.swift */; };
 		82C4459D2B6936DF00037C9D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4459C2B6936DE00037C9D /* PostCell.swift */; };
@@ -64,6 +65,7 @@
 		82306E8A2B68E9A800B9ACFE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		82306E8C2B68F5FC00B9ACFE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		82306E8E2B68F62000B9ACFE /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		823C87182B6A0A76002EEECA /* MyPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPostCell.swift; path = InstaPro/ViewModel/MyPostCell.swift; sourceTree = SOURCE_ROOT; };
 		82C445982B69328C00037C9D /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		82C4459A2B69338600037C9D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		82C4459C2B6936DE00037C9D /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostCell.swift; path = InstaPro/Model/PostCell.swift; sourceTree = SOURCE_ROOT; };
@@ -176,6 +178,7 @@
 			children = (
 				82C4459C2B6936DE00037C9D /* PostCell.swift */,
 				82C445A22B694CE600037C9D /* UserCell.swift */,
+				823C87182B6A0A76002EEECA /* MyPostCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				8215022F2B67C8F600A637A1 /* AppDelegate.swift in Sources */,
 				821502372B67CB5F00A637A1 /* HomeView.swift in Sources */,
 				821502202B67C4CE00A637A1 /* ContentView.swift in Sources */,
+				823C87192B6A0A76002EEECA /* MyPostCell.swift in Sources */,
 				8215021E2B67C4CE00A637A1 /* InstaProApp.swift in Sources */,
 				82C445A52B6952E200037C9D /* ProfileViewModel.swift in Sources */,
 				82306E852B68E95700B9ACFE /* SearchView.swift in Sources */,
