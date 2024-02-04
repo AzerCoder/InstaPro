@@ -11,20 +11,16 @@ class FeedViewModel:ObservableObject{
     @Published var isLoading = false
     @Published var items: [Post] = []
     
-    func apiPostList(complition: @escaping ()->()){
+    func apiFeedList(uid: String){
         isLoading = true
         items.removeAll()
         
-        self.items.append(Post(title: "Azamjon001",content: "March 12, 2004",imgUrl: Utills.image1))
-        self.items.append(Post(title: "Azamjon",content: "March 12, 2004",imgUrl: Utills.image2))
-        self.items.append(Post(title: "Azamjon001",content: "March 12, 2004",imgUrl: Utills.image1))
-        self.items.append(Post(title: "Azamjon",content: "March 12, 2004",imgUrl: Utills.image2))
-        self.items.append(Post(title: "Azamjon001",content: "March 12, 2004",imgUrl: Utills.image1))
-        self.items.append(Post(title: "Azamjon",content: "March 12, 2004",imgUrl: Utills.image2))
-        self.items.append(Post(title: "Azamjon001",content: "March 12, 2004",imgUrl: Utills.image1))
-        
-        isLoading = false
-        complition()
+        DatabaseStore().loadFeeds(uid: uid, completion: { posts in
+            self.items = posts!
+            self.isLoading = false
+           
+        })
+      
         
     }
     

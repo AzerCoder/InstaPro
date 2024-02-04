@@ -9,15 +9,19 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct MyPostCell: View {
+    var uid: String
+    var viewModel: ProfileViewModel
+    @State private var showingAlert = false
     var post: Post
-    @State var length: CGFloat
+    var length: CGFloat
+    
     var body: some View {
         VStack{
-            WebImage(url: URL(string: post.imgUrl!))
+            WebImage(url: URL(string: post.imgPost!))
                 .resizable()
                 .frame(width: length,height: length)
                 .scaledToFit()
-            Text("Make a symbolic breakpint at")
+            Text(post.caption!)
                 .foregroundColor(.black)
                 .font(.system(size: 16))
                 .padding(.vertical,10)
@@ -27,5 +31,5 @@ struct MyPostCell: View {
 }
 
 #Preview {
-    MyPostCell(post: Post(imgUrl: Utills.image2), length: UIScreen.width)
+    MyPostCell(uid: "uid", viewModel: ProfileViewModel(), post: Post(caption: "Azamjon", imgPost: Utills.image1), length: UIScreen.width)
 }

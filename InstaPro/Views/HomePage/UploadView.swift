@@ -10,6 +10,8 @@ import SwiftUI
 struct UploadView: View {
     @Binding var tabSelection: Int
     
+    @EnvironmentObject var session : SessionStore
+    @ObservedObject var viewModel = UploadViewModal()
     @State private var sourType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage : UIImage?
     @State private var imagePickerDiplay = false
@@ -17,8 +19,17 @@ struct UploadView: View {
     @State var actionSheet = false
     
     func uploadPost(){
-        if caption.isEmpty || selectedImage == nil {
+        if caption.isEmpty || selectedImage == nil{
             return
+        }
+        // Send post to server
+        let uid = (session.session?.uid)!
+        viewModel.apiUploadPost(uid: uid, caption: caption, image: selectedImage!){result in
+            if result {
+                self.selectedImage = nil
+                self.caption = ""
+                self.tabSelection = 0
+            }
         }
     }
     
@@ -86,11 +97,13 @@ struct UploadView: View {
                 }
                 
                 
+                if viewModel.isLoading{
+                    ProfileView()
+                }
                
             }
             .navigationBarItems(trailing:
             Button(action: {
-                self.tabSelection = 0
                 self.uploadPost()
             }, label: {
                 Image(systemName: "square.and.arrow.up")

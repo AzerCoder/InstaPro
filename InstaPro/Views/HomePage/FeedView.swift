@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FeedView: View {
     @Binding var tabSelection: Int
+    @EnvironmentObject var session: SessionStore
     @ObservedObject var viewModel = FeedViewModel()
     
     var body: some View {
@@ -16,9 +17,15 @@ struct FeedView: View {
             ZStack{
                 List{
                     ForEach(viewModel.items, id:\.self){item in
-                        PostCell(post:item).listRowInsets(EdgeInsets())
+                        if let uid = session.session?.uid!{
+                            FeedPostCell(uid: uid, viewModel: viewModel, post: item).listRowInsets(EdgeInsets())
+                        }
                     }
                 }.listStyle(PlainListStyle())
+                
+//                if viewModel.isLoading{
+//                    ProfileView()
+//                }
             }
             .navigationBarItems(trailing:
             Button(action: {
@@ -30,9 +37,9 @@ struct FeedView: View {
             .navigationBarTitle("Instagram",displayMode: .inline)
         }
         .onAppear{
-            viewModel.apiPostList {
-                print(viewModel.items.count)
-            }
+            if let uid = session.session?.uid {
+                viewModel.apiFeedList(uid:uid)
+               }
         }
         
     }

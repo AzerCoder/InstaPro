@@ -142,18 +142,20 @@ struct ProfileView: View {
                     if isList{
                         List{
                             ForEach(viewModel.items,id:\.self){ item in
-                                MyPostCell(post:item, length: UIScreen.width)
-                                    .listRowInsets(EdgeInsets())
-                                    
+                                if let uid = session.session?.uid! {
+                                    MyPostCell(uid: uid, viewModel: viewModel,  post: item, length: UIScreen.width)
+                                        .listRowInsets(EdgeInsets())
+                                }
                             }
                         }.listStyle(PlainListStyle()).padding(.horizontal,3)
                     }else{
                         ScrollView{
                             LazyVGrid(columns:columns,spacing: 8){
                                 ForEach(viewModel.items, id:\.self){ item in
-                                    MyPostCell(post: item, length: UIScreen.width/2)
+                                    if let uid = session.session?.uid! {
+                                        MyPostCell(uid: uid, viewModel: viewModel, post: item, length: UIScreen.width/2)
+                                    }
                                 }
-                                
                             }
                         }
                     }
@@ -187,10 +189,11 @@ struct ProfileView: View {
             }
             .navigationBarTitle("Profile",displayMode: .inline)
         }.onAppear{
-            viewModel.apiPostList{}
+           
             if let uid = session.session?.uid {
-                   viewModel.apiLoadUser(uid: uid)
-               } 
+                    viewModel.apiPostList(uid: uid)
+                    viewModel.apiLoadUser(uid: uid)
+               }
            
         }
         

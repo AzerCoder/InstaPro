@@ -16,20 +16,16 @@ class ProfileViewModel:ObservableObject{
     @Published var displayName = ""
     @Published var imgUser = ""
     
-    func apiPostList(complition: @escaping ()->()){
+    func apiPostList(uid :String){
         isLoading = true
         items.removeAll()
         
-        self.items.append(Post(title: "Azamjon001",content: "March 12, 2004",imgUrl: Utills.image1))
-        self.items.append(Post(title: "Azamjon",content: "March 12, 2004",imgUrl: Utills.image2))
-        self.items.append(Post(title: "Azamjon001",content: "March 12, 2004",imgUrl: Utills.image1))
-        self.items.append(Post(title: "Azamjon",content: "March 12, 2004",imgUrl: Utills.image2))
-        self.items.append(Post(title: "Azamjon001",content: "March 12, 2004",imgUrl: Utills.image1))
-        self.items.append(Post(title: "Azamjon",content: "March 12, 2004",imgUrl: Utills.image2))
-        self.items.append(Post(title: "Azamjon001",content: "March 12, 2004",imgUrl: Utills.image1))
-        
-        isLoading = false
-        complition()
+        DatabaseStore().loadPosts(uid: uid, completion: { posts in
+            self.items = posts!
+            self.isLoading = false
+        })
+       
+       
         
     }
     

@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct LikesView: View {
+    @EnvironmentObject var session: SessionStore
     @ObservedObject var viewModel = LikeViewModel()
     var body: some View {
         NavigationView{
             ZStack{
                 List{
                     ForEach(viewModel.items, id:\.self){item in
-                        PostCell(post:item).listRowInsets(EdgeInsets())
+                        if let uid = session.session?.uid! {
+                            LikePostCell(uid: uid, viewModel: LikeViewModel(), post: item).listRowInsets(EdgeInsets())
+                        }
                     }
                 }.listStyle(PlainListStyle())
             }
