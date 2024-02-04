@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @ObservedObject var viewModel = SearchViewModel()
+    @EnvironmentObject var session : SessionStore
     @State var keyword = ""
     var body: some View {
         NavigationView {
@@ -29,10 +30,15 @@ struct SearchView: View {
                         }
                     }.listStyle(PlainListStyle())
                 }
+                
+                if viewModel.isLoading{
+                    ProfileView()
+                }
+                
             } .navigationBarTitle("Search",displayMode: .inline)
             .onAppear{
-                viewModel.apiUserList {
-                    print(viewModel.items.count)
+                if let uid = session.session?.uid {
+                    viewModel.apiUserList(uid: uid, keyword: keyword)
                 } 
             }
         }

@@ -22,7 +22,7 @@ struct MyPostCell: View {
                 .font(.system(size: 16))
                 .padding(.vertical,10)
                 .frame(width: length)
-        }
+        }.padding(.horizontal)
     }
 }
 

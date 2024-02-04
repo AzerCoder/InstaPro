@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProfileView: View {
     @State var isList = true
@@ -15,17 +16,26 @@ struct ProfileView: View {
     @State private var selectedImage : UIImage?
     @State private var imagePickerDiplay = false
     @State var shovingAlert = false
+    @EnvironmentObject var session : SessionStore
     
     var columns:[GridItem] = Array(repeating: .init(.fixed(UIScreen.width/2)), count: 2)
+    
+    func uploadImage() {
+        let uid = (session.session?.uid)!
+        viewModel.apiUploadMyImage(uid: uid, image: selectedImage!)
+    }
+    
     var body: some View {
-       
+        
         NavigationView{
             ZStack{
                 VStack(spacing:0){
                     ZStack(alignment:.bottomTrailing) {
                         VStack{
-                            if selectedImage != nil{
-                               Image(uiImage: selectedImage!).resizable().clipShape(Circle())
+                            if !viewModel.imgUser.isEmpty{
+                                WebImage(url: URL(string: viewModel.imgUser))
+                                    .resizable()
+                                    .clipShape(Circle())
                                     .frame(width: 70,height: 70)
                                     .padding(.all,2)
                             }else{
@@ -34,7 +44,8 @@ struct ProfileView: View {
                                     .padding(.all,2)
                             }
                         }.overlay(RoundedRectangle(cornerRadius: 35)
-                        .stroke(Utills.color2,lineWidth:2))
+                            .stroke(Utills.color2,lineWidth:2))
+                        
                         
                         Button(action: {
                             self.actionSheet.toggle()
@@ -46,7 +57,7 @@ struct ProfileView: View {
                         }).overlay(RoundedRectangle(cornerRadius: 35)
                             .stroke(.white,lineWidth:3))
                         
-                        .sheet(isPresented: $imagePickerDiplay) {
+                        .sheet(isPresented: $imagePickerDiplay,onDismiss: uploadImage){
                             ImagePickerView(selectedImage: $selectedImage, sourceType: self.sourType)
                         }
                         .actionSheet(isPresented: $actionSheet){
@@ -58,19 +69,17 @@ struct ProfileView: View {
                                 },.default(Text("Photo Library")){
                                     self.sourType = .photoLibrary
                                     self.imagePickerDiplay.toggle()
-                                },.destructive(Text("Trash")){
-                                    self.selectedImage = nil
                                 },.cancel()]
                             )
-                           
+                            
                         }
                     }
-                    Text("Azamjon Abdumuxtorov")
+                    Text(viewModel.displayName)
                         .foregroundColor(.black)
                         .font(.system(size: 17))
                         .fontWeight(.medium)
                         .padding(.top,15)
-                    Text("abdumuxtorov@gmailcom")
+                    Text(viewModel.email)
                         .foregroundColor(.gray)
                         .font(.system(size: 15))
                         .padding(.top,3)
@@ -127,13 +136,15 @@ struct ProfileView: View {
                             Image(systemName: "square.grid.2x2")
                                 .font(.title2)
                         })
-                       
+                        
                     }.frame(width: 200).padding(.vertical,10)
                     
                     if isList{
                         List{
                             ForEach(viewModel.items,id:\.self){ item in
-                                MyPostCell(post:item, length: UIScreen.width).listRowInsets(EdgeInsets())
+                                MyPostCell(post:item, length: UIScreen.width)
+                                    .listRowInsets(EdgeInsets())
+                                    
                             }
                         }.listStyle(PlainListStyle()).padding(.horizontal,3)
                     }else{
@@ -146,13 +157,20 @@ struct ProfileView: View {
                             }
                         }
                     }
-                        
-                  
+                    
+                    
                 }
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                }
+                
+                
             }
             
+            
             .navigationBarItems(trailing:
-            Button(action: {
+                                    Button(action: {
                 self.shovingAlert = true
             }, label: {
                 Image(systemName: "pip.exit")
@@ -169,13 +187,16 @@ struct ProfileView: View {
             }
             .navigationBarTitle("Profile",displayMode: .inline)
         }.onAppear{
-            viewModel.apiPostList {
-                print(viewModel.items.count)
-            }
+            viewModel.apiPostList{}
+            if let uid = session.session?.uid {
+                   viewModel.apiLoadUser(uid: uid)
+               } 
+           
         }
+        
     }
 }
 
 #Preview {
-    ProfileView()
+    ProfileView().environmentObject(SessionStore())
 }

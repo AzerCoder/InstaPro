@@ -6,15 +6,26 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct UserCell: View {
     var user : User
     var body: some View {
         HStack(spacing:0){
             VStack{ 
-                Image("profile").resizable().clipShape(Circle())
-                    .frame(width: 46,height: 46)
-                    .padding(.all,2)
+                if !user.imgUser!.isEmpty{
+                    WebImage(url: URL(string: user.imgUser!))
+                        .resizable()
+                        .clipShape(Circle())
+                        .frame(width: 46,height: 46)
+                        .padding(.all,2)
+                }else{
+                    Image("profile")
+                        .resizable()
+                        .clipShape(Circle())
+                        .frame(width: 46,height: 46)
+                        .padding(.all,2)
+                }
             }.overlay(RoundedRectangle(cornerRadius: 25.0)
                 .stroke(Utills.color2,lineWidth:2))
             VStack(alignment:.leading,spacing:3){

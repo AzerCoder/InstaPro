@@ -11,21 +11,14 @@ class SearchViewModel:ObservableObject{
     @Published var isLoading = false
     @Published var items: [User] = []
     
-    func apiUserList(complition: @escaping ()->()){
+    func apiUserList(uid: String, keyword: String) {
         isLoading = true
         items.removeAll()
         
-        self.items.append(User(uid: "1",email: "abdumuxtorov@gmail.com", displayName: "Azamjon001"))
-        self.items.append(User(uid: "1",email: "abdumuxtorov@gmail.com", displayName: "Azamjon001"))
-        self.items.append(User(uid: "1",email: "abdumuxtorov@gmail.com", displayName: "Azamjon001"))
-        self.items.append(User(uid: "1",email: "abdumuxtorov@gmail.com", displayName: "Azamjon001"))
-        self.items.append(User(uid: "1",email: "abdumuxtorov@gmail.com", displayName: "Azamjon001"))
-        self.items.append(User(uid: "1",email: "abdumuxtorov@gmail.com", displayName: "Azamjon001"))
-        self.items.append(User(uid: "1",email: "abdumuxtorov@gmail.com", displayName: "Azamjon001"))
-        self.items.append(User(uid: "1",email: "abdumuxtorov@gmail.com", displayName: "Azamjon001"))
-        self.items.append(User(uid: "1",email: "abdumuxtorov@gmail.com", displayName: "Azamjon001"))
-        
-        isLoading = false
-        complition()
+        DatabaseStore().loadUsers(keyword: keyword){ users in
+            self.items = users!
+            self.isLoading = false
+        }
     }
 }
+
