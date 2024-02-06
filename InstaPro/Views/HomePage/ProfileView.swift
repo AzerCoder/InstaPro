@@ -85,7 +85,7 @@ struct ProfileView: View {
                         .padding(.top,3)
                     HStack{
                         VStack{
-                            Text("216")
+                            Text(String(viewModel.items.count))
                                 .foregroundColor(.black)
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
@@ -98,7 +98,7 @@ struct ProfileView: View {
                             .background(.gray.opacity(0.5))
                         
                         VStack{
-                            Text("4,235")
+                            Text(String(viewModel.followers.count))
                                 .foregroundColor(.black)
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
@@ -111,7 +111,7 @@ struct ProfileView: View {
                             .background(.gray.opacity(0.5))
                         
                         VStack{
-                            Text("457")
+                            Text(String(viewModel.following.count))
                                 .foregroundColor(.black)
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
@@ -191,9 +191,11 @@ struct ProfileView: View {
         }.onAppear{
            
             if let uid = session.session?.uid {
-                    viewModel.apiPostList(uid: uid)
-                    viewModel.apiLoadUser(uid: uid)
-               }
+                viewModel.apiPostList(uid: uid)
+                viewModel.apiLoadUser(uid: uid)
+                viewModel.apiLoadFollowers(uid: uid)
+                viewModel.apiLoadFollowing(uid: uid)
+            }
            
         }
         

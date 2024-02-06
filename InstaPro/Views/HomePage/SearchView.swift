@@ -24,9 +24,11 @@ struct SearchView: View {
                         
                     List{
                         ForEach(viewModel.items,id: \.self ){ item in
-                            UserCell(user:item)
-                                .listRowInsets(EdgeInsets())
-                                .buttonStyle(PlainButtonStyle())
+                            if let uid = session.session?.uid{
+                                UserCell(uid: uid, user: item, viewModal: viewModel)
+                                    .listRowInsets(EdgeInsets())
+                                    .buttonStyle(PlainButtonStyle())
+                            }
                         }
                     }.listStyle(PlainListStyle())
                 }

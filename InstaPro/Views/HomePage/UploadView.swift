@@ -97,9 +97,9 @@ struct UploadView: View {
                 }
                 
                 
-                if viewModel.isLoading{
-                    ProfileView()
-                }
+//                if viewModel.isLoading{
+//                    ProfileView()
+//                }
                
             }
             .navigationBarItems(trailing:

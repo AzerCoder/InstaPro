@@ -9,7 +9,10 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct UserCell: View {
+    var uid: String
     var user : User
+    var viewModal: SearchViewModel
+    
     var body: some View {
         HStack(spacing:0){
             VStack{ 
@@ -40,18 +43,32 @@ struct UserCell: View {
             Spacer()
             
             Button(action: {
-                
+                if user.isFollowed{
+                    viewModal.apiUnFollowUser(uid: uid, to: user)
+                }else{
+                    viewModal.apiFollowUser(uid: uid, to: user)
+                }
             }, label: {
-                Text("Following")
-                    .font(.system(size: 15))
-                    .foregroundColor(.black.opacity(0.5))
-                    .frame(width: 90,height: 30)
-                    .overlay(RoundedRectangle(cornerRadius: 25.0).stroke(.gray,lineWidth: 1))
+                if user.isFollowed{
+                    Text("Following")
+                        .font(.system(size: 15))
+                        .foregroundColor(.black.opacity(0.5))
+                        .frame(width: 90,height: 30)
+                        .overlay(RoundedRectangle(cornerRadius: 25.0).stroke(.gray,lineWidth: 1))
+                    
+                }else{
+                    Text("Follow")
+                        .font(.system(size: 15))
+                        .foregroundColor(.black.opacity(0.5))
+                        .frame(width: 90,height: 30)
+                        .overlay(RoundedRectangle(cornerRadius: 25.0).stroke(.gray,lineWidth: 1))
+                    
+                }
             })
         }.padding()
     }
 }
 
 #Preview {
-    UserCell(user: User(uid: "1",email: "abdumuxtorov@gmail.com", displayName: "Azamjon001"))
+    UserCell(uid: "", user: User(), viewModal: SearchViewModel())
 }
