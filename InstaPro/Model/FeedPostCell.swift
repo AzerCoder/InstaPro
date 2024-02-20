@@ -44,32 +44,60 @@ struct FeedPostCell: View {
                 Spacer()
                 
                 Button(action: {
-                    
+                    self.showingAlert = true 
                 }, label: {
-                    Image(systemName: "ellipsis")
-                        .foregroundColor(.black)
+                    if uid == post.uid{
+                        Image(systemName: "ellipsis")
+                            .foregroundColor(.black)
+                    }
                 })
+                .buttonStyle(PlainButtonStyle())
+                .alert(isPresented: $showingAlert) {
+                    let title = "Delete"
+                    let message = "Do you want to delete this post?"
+                    return Alert(title: Text(title), message: Text(message), primaryButton: .destructive(Text("Confirm"), action: {
+                        // Some action
+                        viewModel.apiRemovePost(uid: uid, post: post)
+                    }), secondaryButton: .cancel())
+                }
             }.padding(.horizontal,15).padding(.top,15)
             
             WebImage(url: URL(string: post.imgPost!))
                 .resizable()
                 .scaledToFit().padding(.top,15)
             
-            HStack(spacing:0){
-                Button(action: {
+            VStack(alignment:.leading) {
+                HStack(spacing:0){
                     
-                }, label: {
-                    Image(systemName: "heart")
-                        .font(.title)
-                })
-                Button(action: {
+                    Button(action: {
+                        if post.isLiked!{
+                            post.isLiked = false
+                        }else{
+                            post.isLiked = true
+                        }
+                        viewModel.apiLikePost(uid:uid,post:post)
+                    }, label: {
+                        if post.isLiked!{
+                            Image(systemName: "heart.fill")
+                                .foregroundColor(.red)
+                                .font(.title)
+                        }else{
+                            Image(systemName: "heart")
+                                .font(.title)
+                        }
+                        
+                    })
                     
-                }, label: {
-                    Image(systemName: "arrowshape.turn.up.right")
-                        .font(.title)
-                }).padding(.leading,10)
-                Spacer()
-            }.padding(.horizontal,15).padding(.top,15)
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "arrowshape.turn.up.right")
+                            .font(.title)
+                    }).padding(.leading,10)
+                    Spacer()
+                    
+                }.padding(.horizontal,15).padding(.top,15)
+            }
             
             HStack(spacing:0){
                 Text(post.caption!)

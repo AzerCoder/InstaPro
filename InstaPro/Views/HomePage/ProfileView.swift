@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ProfileView: View {
-    @State var isList = true
+    @State var isList = true 
     @State var actionSheet = false
     @ObservedObject var viewModel = ProfileViewModel()
     @State private var sourType: UIImagePickerController.SourceType = .photoLibrary

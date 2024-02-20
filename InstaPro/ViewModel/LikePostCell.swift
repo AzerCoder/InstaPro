@@ -17,9 +17,19 @@ struct LikePostCell: View {
         VStack(spacing:0){
             HStack(spacing:0){
                 VStack{
-                    Image("profile").resizable().clipShape(Circle())
-                        .frame(width: 46,height: 46)
-                        .padding(.all,2)
+                    if !post.imgUser!.isEmpty{
+                        WebImage(url: URL(string: post.imgUser!))
+                            .resizable()
+                            .clipShape(Circle())
+                            .frame(width: 46,height: 46)
+                            .padding(.all,2)
+                    }else{
+                        Image("profile")
+                            .resizable()
+                            .clipShape(Circle())
+                            .frame(width: 46,height: 46)
+                            .padding(.all,2)
+                    }
                 }.overlay(RoundedRectangle(cornerRadius: 25.0)
                     .stroke(Utills.color2,lineWidth:2))
                 VStack(alignment:.leading,spacing:3){
@@ -34,11 +44,22 @@ struct LikePostCell: View {
                 Spacer()
                 
                 Button(action: {
-                    
+                    self.showingAlert = true
                 }, label: {
-                    Image(systemName: "ellipsis")
-                        .foregroundColor(.black)
+                    if uid == post.uid{
+                        Image(systemName: "ellipsis")
+                            .foregroundColor(.black)
+                    }
                 })
+                .buttonStyle(PlainButtonStyle())
+                .alert(isPresented: $showingAlert) {
+                    let title = "Delete"
+                    let message = "Do you want to delete this post?"
+                    return Alert(title: Text(title), message: Text(message), primaryButton: .destructive(Text("Confirm"), action: {
+                        // Some action
+                        viewModel.apiRemovePost(uid: uid, post: post)
+                    }), secondaryButton: .cancel())
+                }
             }.padding(.horizontal,15).padding(.top,15)
             
             WebImage(url: URL(string: post.imgPost!))
@@ -47,10 +68,21 @@ struct LikePostCell: View {
             
             HStack(spacing:0){
                 Button(action: {
-                    
+                    if post.isLiked!{
+                        post.isLiked = false
+                    }else{
+                        post.isLiked = true
+                    }
+                    viewModel.apiLikePost(uid:uid,post:post)
                 }, label: {
-                    Image(systemName: "heart")
-                        .font(.title)
+                    if post.isLiked!{
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.red)
+                            .font(.title)
+                    }else{
+                        Image(systemName: "heart")
+                            .font(.title)
+                    }
                 })
                 Button(action: {
                     

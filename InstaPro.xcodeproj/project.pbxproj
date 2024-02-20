@@ -33,6 +33,8 @@
 		823C871D2B6A4539002EEECA /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823C871C2B6A4539002EEECA /* SignInViewModel.swift */; };
 		823C871F2B6A4549002EEECA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823C871E2B6A4549002EEECA /* SignUpViewModel.swift */; };
 		823C87212B6A57BC002EEECA /* ValidateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823C87202B6A57BC002EEECA /* ValidateUser.swift */; };
+		826525062B84DB48005BB83A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 826525052B84DB48005BB83A /* Launch Screen.storyboard */; };
+		826525082B84DBCE005BB83A /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826525072B84DBCE005BB83A /* UserView.swift */; };
 		82B3BC8A2B6F870400736B31 /* DatabaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3BC892B6F870400736B31 /* DatabaseStore.swift */; };
 		82B3BC8C2B6F8EF700736B31 /* StorageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3BC8B2B6F8EF700736B31 /* StorageStore.swift */; };
 		82B3BC8E2B6FB85900736B31 /* UploadViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3BC8D2B6FB85900736B31 /* UploadViewModal.swift */; };
@@ -78,6 +80,8 @@
 		823C871C2B6A4539002EEECA /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		823C871E2B6A4549002EEECA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		823C87202B6A57BC002EEECA /* ValidateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateUser.swift; sourceTree = "<group>"; };
+		826525052B84DB48005BB83A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		826525072B84DBCE005BB83A /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		82B3BC892B6F870400736B31 /* DatabaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStore.swift; sourceTree = "<group>"; };
 		82B3BC8B2B6F8EF700736B31 /* StorageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageStore.swift; sourceTree = "<group>"; };
 		82B3BC8D2B6FB85900736B31 /* UploadViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModal.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				8215021D2B67C4CE00A637A1 /* InstaProApp.swift */,
 				821502212B67C4CF00A637A1 /* Assets.xcassets */,
 				821502402B67DC6700A637A1 /* Localizable.strings */,
+				826525052B84DB48005BB83A /* Launch Screen.storyboard */,
 			);
 			path = AppUtils;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				82306E862B68E96600B9ACFE /* UploadView.swift */,
 				82306E882B68E99D00B9ACFE /* LikesView.swift */,
 				82306E8A2B68E9A800B9ACFE /* ProfileView.swift */,
+				826525072B84DBCE005BB83A /* UserView.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826525062B84DB48005BB83A /* Launch Screen.storyboard in Resources */,
 				823C871B2B6A1F3B002EEECA /* GoogleService-Info.plist in Resources */,
 				821502252B67C4CF00A637A1 /* Preview Assets.xcassets in Resources */,
 				8215023E2B67DC6700A637A1 /* Localizable.strings in Resources */,
@@ -397,6 +404,7 @@
 				821502352B67CB5000A637A1 /* SignUpView.swift in Sources */,
 				823C87212B6A57BC002EEECA /* ValidateUser.swift in Sources */,
 				82306E892B68E99D00B9ACFE /* LikesView.swift in Sources */,
+				826525082B84DBCE005BB83A /* UserView.swift in Sources */,
 				821502332B67CB4800A637A1 /* SignInView.swift in Sources */,
 				82B3BC8E2B6FB85900736B31 /* UploadViewModal.swift in Sources */,
 				82B3BC902B6FC6D800736B31 /* LikePostCell.swift in Sources */,
@@ -560,9 +568,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InstaPro/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Instagram;
+				INFOPLIST_KEY_NSCameraUsageDescription = "You can take photos to document your job";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "You can select photos to attech to reports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -592,9 +603,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InstaPro/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Instagram;
+				INFOPLIST_KEY_NSCameraUsageDescription = "You can take photos to document your job";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "You can select photos to attech to reports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
