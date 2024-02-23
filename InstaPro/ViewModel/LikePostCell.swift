@@ -94,7 +94,7 @@ struct LikePostCell: View {
             }.padding(.horizontal,15).padding(.top,15)
             
             HStack(spacing:0){
-                Text("Make a symbolic breakpoint at uView , category on UiView listed in")
+                Text(post.caption!)
                     .foregroundColor(.black)
                     .font(.system(size: 16))
                 Spacer()

@@ -25,7 +25,7 @@ struct SearchView: View {
                     List{
                         ForEach(viewModel.items,id: \.self ){ item in
                             if let uid = session.session?.uid{
-                                UserCell(uid: uid, user: item, viewModal: viewModel)
+                                UserCell(uid: uid, user: item, viewModel: viewModel)
                                     .listRowInsets(EdgeInsets())
                                     .buttonStyle(PlainButtonStyle())
                             }

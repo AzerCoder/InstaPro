@@ -24,6 +24,21 @@ class FeedViewModel:ObservableObject{
         
     }
     
+    func apiUserList(uid: String){
+        isLoading = true
+        items.removeAll()
+        
+        DatabaseStore().loadUserPosts(uid: uid, completion: { posts in
+            self.items = posts!
+            self.isLoading = false
+           
+        })
+      
+        
+    }
+    
+    
+    
     func apiLikePost(uid: String,post:Post){
         DatabaseStore().likeFeedPost(uid:uid,post:post)
     }

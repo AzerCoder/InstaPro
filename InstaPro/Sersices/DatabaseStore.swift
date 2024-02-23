@@ -355,4 +355,78 @@ class DatabaseStore:ObservableObject{
         }
     }
     
+    func loadUserPosts(uid: String, completion: @escaping ([Post]?) -> ()) {
+        var items: [Post] = []
+        
+        store.collection(USER_PATH).document(uid).collection(POST_PATH).getDocuments { querySnapshot, error in
+            if let documents = querySnapshot?.documents {
+                documents.forEach { document in
+                    let postId = document["postId"] as? String ?? ""
+                    let caption = document["caption"] as? String ?? ""
+                    let imgPost = document["imgPost"] as? String ?? ""
+                    let displayName = document["displayName"] as? String ?? ""
+                    let imgUser = document["imgUser"] as? String ?? ""
+                    let time = document["time"] as? String ?? ""
+                    let uid = document["uid"] as? String ?? ""
+                    
+                    let isLiked = document["isLiked"] as? Bool ?? false
+                    
+                    var post = Post(postId: postId, caption: caption, imgPost: imgPost)
+                    post.displayName = displayName
+                    post.imgUser = imgUser
+                    post.time = time
+                    post.uid = uid
+                    post.isLiked = isLiked
+                    
+                    items.append(post)
+                }
+                completion(items)
+            } else {
+                print("Error fetching documents: \(error)")
+                completion(nil)
+            }
+        }
+    }
+    
+    
+
+    // Foydalanuvchining followers sonini aniqlash uchun funksiya
+        func getFollowersCount(forUserID userID: String, completion: @escaping (Int) -> Void) {
+            store.collection("users").document(userID).collection("followers").getDocuments { snapshot, error in
+                if let error = error {
+                    print("Error getting followers: \(error.localizedDescription)")
+                    completion(0)
+                } else {
+                    let count = snapshot?.documents.count ?? 0
+                    completion(count)
+                }
+            }
+        }
+
+        // Foydalanuvchining followinglar sonini aniqlash uchun funksiya
+        func getFollowingCount(forUserID userID: String, completion: @escaping (Int) -> Void) {
+            store.collection("users").document(userID).collection("following").getDocuments { snapshot, error in
+                if let error = error {
+                    print("Error getting following: \(error.localizedDescription)")
+                    completion(0)
+                } else {
+                    let count = snapshot?.documents.count ?? 0
+                    completion(count)
+                }
+            }
+        }
+
+        // Foydalanuvchining postlar sonini aniqlash uchun funksiya
+        func getPostCount(forUserID userID: String, completion: @escaping (Int) -> Void) {
+            store.collection("users").document(userID).collection("posts").getDocuments { snapshot, error in
+                if let error = error {
+                    print("Error getting posts: \(error.localizedDescription)")
+                    completion(0)
+                } else {
+                    let count = snapshot?.documents.count ?? 0
+                    completion(count)
+                }
+            }
+        }
+
 }

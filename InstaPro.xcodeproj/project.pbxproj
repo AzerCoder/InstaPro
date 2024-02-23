@@ -35,6 +35,7 @@
 		823C87212B6A57BC002EEECA /* ValidateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823C87202B6A57BC002EEECA /* ValidateUser.swift */; };
 		826525062B84DB48005BB83A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 826525052B84DB48005BB83A /* Launch Screen.storyboard */; };
 		826525082B84DBCE005BB83A /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826525072B84DBCE005BB83A /* UserView.swift */; };
+		8265338B2B84F78900B84DDC /* UserInfiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8265338A2B84F78900B84DDC /* UserInfiCell.swift */; };
 		82B3BC8A2B6F870400736B31 /* DatabaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3BC892B6F870400736B31 /* DatabaseStore.swift */; };
 		82B3BC8C2B6F8EF700736B31 /* StorageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3BC8B2B6F8EF700736B31 /* StorageStore.swift */; };
 		82B3BC8E2B6FB85900736B31 /* UploadViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3BC8D2B6FB85900736B31 /* UploadViewModal.swift */; };
@@ -82,6 +83,7 @@
 		823C87202B6A57BC002EEECA /* ValidateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateUser.swift; sourceTree = "<group>"; };
 		826525052B84DB48005BB83A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		826525072B84DBCE005BB83A /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		8265338A2B84F78900B84DDC /* UserInfiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfiCell.swift; path = InstaPro/Views/HomePage/UserInfiCell.swift; sourceTree = SOURCE_ROOT; };
 		82B3BC892B6F870400736B31 /* DatabaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStore.swift; sourceTree = "<group>"; };
 		82B3BC8B2B6F8EF700736B31 /* StorageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageStore.swift; sourceTree = "<group>"; };
 		82B3BC8D2B6FB85900736B31 /* UploadViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModal.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				82C445A22B694CE600037C9D /* UserCell.swift */,
 				823C87182B6A0A76002EEECA /* MyPostCell.swift */,
 				82B3BC8F2B6FC6D800736B31 /* LikePostCell.swift */,
+				8265338A2B84F78900B84DDC /* UserInfiCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				82306E8D2B68F5FC00B9ACFE /* Coordinator.swift in Sources */,
 				82B3BC8A2B6F870400736B31 /* DatabaseStore.swift in Sources */,
 				8215022F2B67C8F600A637A1 /* AppDelegate.swift in Sources */,
+				8265338B2B84F78900B84DDC /* UserInfiCell.swift in Sources */,
 				821502372B67CB5F00A637A1 /* HomeView.swift in Sources */,
 				823C871D2B6A4539002EEECA /* SignInViewModel.swift in Sources */,
 				821502202B67C4CE00A637A1 /* ContentView.swift in Sources */,
